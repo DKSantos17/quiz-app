@@ -1,5 +1,4 @@
 let currentQuestion = 0
-let correct = 0;
 let responses = [];
 const data = [
     {stem: 'In what year were the Seahawks added to the NFL?', optionA: 1970, optionB: 1976, optionC: 1981, optionD: 1992},
@@ -15,41 +14,57 @@ const data = [
 ];
 
 //We need to present the user with an intro screen and a start button which, when clicked, introduces the question apparatus.
-function pullDataForSingleQuestion(arr) {
-    console.log(`Pulled data for question ${currentQuestion}`)
-    $('.questionStem').html(arr[currentQuestion].stem)
-    $('.optA').html(arr[currentQuestion].optionA)
-    $('.optB').html(arr[currentQuestion].optionB)
-    $('.optC').html(arr[currentQuestion].optionC)
-    $('.optD').html(arr[currentQuestion].optionD)
+function handleBeginClick () {
+    $('.start').click(function(startQuiz) {
+        console.log('Started the quiz')
+        $('.intro').hide()
+        $('.questions').show()
+        populateQuestionForm()
+    })
 }
 
 function populateQuestionForm () {
-    console.log('Tried my darndest to populate the form');
-    pullDataForSingleQuestion(data);
-    //$('.questionStem').html(data)
-
+    console.log(`Pulled data for question ${currentQuestion}`)
+    $('.questionStem').html(data[currentQuestion].stem)
+    $('.optA').html(data[currentQuestion].optionA)
+    $('.optB').html(data[currentQuestion].optionB)
+    $('.optC').html(data[currentQuestion].optionC)
+    $('.optD').html(data[currentQuestion].optionD)
 
 }
 //We need to present each question with its appropriate data sequentially
 function handleQuestionSubmit () {
 $('#questions').submit(function(event) {
+    console.log('They clicked submit!')
     event.preventDefault();
-    console.log('They clicked submit!');
+    trackResponse();
     currentQuestion ++;
-    console.log(currentQuestion)
-    populateQuestionForm();
+    if (currentQuestion < 10) {
+        populateQuestionForm();
+    }
+    else {
+        completeQuiz();
+    }
 })
 }
-//We need to track the user's responses
 
+function completeQuiz() {
+console.log('Completed Quiz')
+$('.questions').hide()
+$('.results').show()
+}
+//We need to track the user's responses
+function trackResponse() {
+    console.log(`Logged response to question ${currentQuestion} (but not really yet)`);
+
+}
 //We need to grade the user responses
 
 //We need to present the user with their result and some feedback.
 
 function startYourEngines () {
-    populateQuestionForm();
     handleQuestionSubmit();
+    handleBeginClick();
 }
 
 $(startYourEngines);
