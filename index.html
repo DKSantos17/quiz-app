@@ -8,7 +8,21 @@
     <section class="intro"><h1>Seahawks Trivia</h1>
     <p>Are you tired of taking criticizm for loving the Seahawks? Have you been called a &ldquo;bandwagon fan&rdquo; one too many times? This quiz is a chance to show your stuff&mdash;to prove that your interest in this great franchise did't start in 2013. Answer all ten questions and prove that your blood runs blue!</p>
     <button class="start">Begin</button></section>
-    <form id="question-one">
+    <section class="questions">
+        <form id="questions">
+        <p class="questionStem"></p>
+        <input type="radio" name="question" id="optA">
+        <label for="optA" class="optA"></label>
+        <input type="radio" name="question" id="optB">
+        <label for="optB" class="optB"></label>
+        <input type="radio" name="question" id="optC">
+        <label for="optC" class="optC"></label>
+        <input type="radio" name="question" id="optD">
+        <label for="optD" class="optD"></label>
+        <button type="submit">Check Answer</button>
+        </form>
+    </section>
+    <!--<form id="question-one">
         <p>In what year were the Seahawks added to the NFL?</p>
         <input type="radio" id="q1a" name="q1" value="1970">
         <label for="q1a">1970</label>
@@ -127,12 +141,13 @@
         <input type="radio" name="q10" id="q10d" value="Russell Wilson">
         <label for="q10d">Russell Wilson</label>
         <button type="submit">Check Answer</button>
-    </form>
+    </form>-->
     <section class="results">
         <h2>Your Score</h2>
         <h3><span id="js-total-correct"></span> out of 10</h3>
         <p class="results-paragraph"></p>
     </section>
-    
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
