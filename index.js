@@ -1,4 +1,5 @@
 let currentQuestion = 0
+let currentResponse = ''
 let responses = [];
 const data = [
     {stem: 'In what year were the Seahawks added to the NFL?', optionA: 1970, optionB: 1976, optionC: 1981, optionD: 1992},
@@ -45,26 +46,77 @@ $('#questions').submit(function(event) {
     else {
         completeQuiz();
     }
+    $('input').prop('checked', false);
 })
-}
-
-function completeQuiz() {
-console.log('Completed Quiz')
-$('.questions').hide()
-$('.results').show()
-}
-//We need to track the user's responses
-function trackResponse() {
-    console.log(`Logged response to question ${currentQuestion} (but not really yet)`);
-
 }
 //We need to grade the user responses
 
 //We need to present the user with their result and some feedback.
+function completeQuiz() {
+    let totalCorrect = 0
+    console.log('Completed Quiz')
+    if (responses[0] === 'B') {
+        totalCorrect ++
+    }
+    if (responses[1] === 'D') {
+        totalCorrect ++
+    }
+    if (responses[2] === 'C') {
+        totalCorrect ++
+    }
+    if (responses[3] === 'B') {
+        totalCorrect ++
+    }
+    if (responses[4] === 'D') {
+        totalCorrect ++
+    }
+    if (responses[5] === 'A') {
+        totalCorrect ++
+    }
+    if (responses[6] === 'C') {
+        totalCorrect ++
+    }
+    if (responses[7] === 'C') {
+        totalCorrect ++
+    }
+    if (responses[8] === 'A') {
+        totalCorrect ++
+    }
+    if (responses[9] === 'B') {
+        totalCorrect ++
+    }
+    console.log(totalCorrect)
+    $('#js-total-correct').html(totalCorrect)
+    $('.questions').hide()
+    $('.results').show()
+}
+//We need to track the user's responses
+function wheredTheyClick() {
+    $('#optA').click(function(track) {
+        currentResponse = 'A'
+    })
+    $('#optB').click(function(track) {
+        currentResponse = 'B'
+    })
+    $('#optC').click(function(track) {
+        currentResponse = 'C'
+    })
+    $('#optD').click(function(track) {
+        currentResponse = 'D'
+    })
+    }
+
+function trackResponse() {
+    console.log(`Logged response to question ${currentQuestion}`);
+    responses.push(currentResponse)
+    //let response = $(`input[name=question]:checked`).val
+    //console.log(response)
+}
 
 function startYourEngines () {
     handleQuestionSubmit();
     handleBeginClick();
+    wheredTheyClick();
 }
 
 $(startYourEngines);
