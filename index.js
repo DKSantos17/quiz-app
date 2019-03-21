@@ -7,13 +7,12 @@ const data = [
     {stem: 'What is the highest number of wins the Seahawks have had in a single season?', optionA: 15, optionB: 14, optionC: 13, optionD: 12, key: 'C', answer: '13'},
     {stem: 'What is the lowest number of wins the Seahawks have had in a single season?', optionA: 1, optionB: 2, optionC: 3, optionD: 4, key: 'B', answer: '2'},
     {stem: 'How many lifelong Seahawks (players who never played for another team) have been inducted into the Hall of Fame?', optionA: 1, optionB: 2, optionC: 3, optionD: 4, key: 'D', answer: '4'},
-    {stem: 'Who was the first lifelong Seahawks to be inducted into the Hall of Fame?', optionA: 'Steve Largent', optionB: 'Cortez Kennedy', optionC: 'Franco Harris', optionD: 'Warren Moon', key: 'A', answer: 'Steve Largent'},
+    {stem: 'Who was the first lifelong Seahawk to be inducted into the Hall of Fame?', optionA: 'Steve Largent', optionB: 'Cortez Kennedy', optionC: 'Franco Harris', optionD: 'Warren Moon', key: 'A', answer: 'Steve Largent'},
     {stem: 'How many times have the Seahawks played in the Superbowl?', optionA: 1, optionB: 2, optionC: 3, optionD: 4, key: 'C', answer: '3'},
     {stem: 'Who is the only Seahawk to have won Superbowl MVP?', optionA: 'Shaun Alexander', optionB: 'Jermaine Kearse', optionC: 'Malcolm Smith', optionD: 'Kam Chancellor', key: 'C', answer: 'Malcolm Smith'},
     {stem: 'Who was the most recent Seahawk to win the AP Defensive Player of the Year award?', optionA: 'Cortez Kennedy', optionB: 'Lofa Tatupu', optionC: 'Richard Sherman', optionD: 'Kenny Easley', key: 'A', answer: 'Cortez Kennedy'},
     {stem: 'Who was the most recent Seahawk to win the MVP award?', optionA: 'Steve Largent', optionB: 'Shaun Alexander', optionC: 'Marshawn Lynch', optionD: 'Russell Wilson', key: 'B', answer: 'Shaun Alexander'}
 ];
-//const key = ['B','D','C','B','D','A','C','C','A','B']
 
 //We need to present the user with an intro screen and a start button which, when clicked, introduces the question apparatus.
 function handleBeginClick () {
@@ -32,6 +31,9 @@ function populateQuestionForm () {
     $('.optB').html(data[currentQuestion].optionB)
     $('.optC').html(data[currentQuestion].optionC)
     $('.optD').html(data[currentQuestion].optionD)
+    $('#question-number').html(currentQuestion+1)
+    $('#js-total-correct').html(totalCorrect)
+    $('#current-question').html(currentQuestion)
 }
 
 function handleQuestionSubmit () {

@@ -3,14 +3,16 @@
 <head>
     <title>Quiz App</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 <body>
     <section class="intro"><h1>Seahawks Trivia</h1>
     <p>Are you tired of taking criticizm for loving the Seahawks? Have you been called a &ldquo;bandwagon fan&rdquo; one too many times? This quiz is a chance to show your stuff&mdash;to prove that your interest in this great franchise did't start in 2013. Answer all ten questions and prove that your blood runs blue!</p>
     <button class="start">Begin</button></section>
     <section class="questions" hidden>
-        <form id="questions">
+        <div class="header"><p>Question <span id="question-number"></span></p><p id="out-of"><span id="js-total-correct"></span> out of <span id="current-question"></span></p></div>
         <p class="questionStem"></p>
+        <form id="questions">
         <input type="radio" name="question" id="optA" value="A" required>
         <label for="optA" class="optA"></label>
         <input type="radio" name="question" id="optB" value="B">
