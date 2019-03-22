@@ -67,7 +67,7 @@ function handleNextQuestion () {
 //We need to present the user with their result and some feedback.
 function completeQuiz() {
     console.log('Completed Quiz')
-    $('#js-total-correct').html(totalCorrect)
+    $('#js-total-correct2').html(totalCorrect)
     $('.questions').hide()
     $('.results').show()
     if (totalCorrect < 3) {
